@@ -1,5 +1,5 @@
 # encoding: utf-8
-# CarrierWave uploader for +Picture+ model. 
+# CarrierWave uploader for +Picture+ model.
 class PictureUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
@@ -9,7 +9,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   # include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -27,7 +27,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpg jpeg gif png)
   end
-  
+
   def root
     Rails.root.join 'public/'
   end
